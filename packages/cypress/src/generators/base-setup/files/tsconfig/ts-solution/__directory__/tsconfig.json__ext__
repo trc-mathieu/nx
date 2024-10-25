@@ -1,0 +1,20 @@
+{
+  "extends": "<%= tsConfigPath %>",
+  "compilerOptions": {
+    "outDir": "dist",
+    "tsBuildInfoFile": "dist/tsconfig.tsbuildinfo",
+    "allowJs": true,
+    "types": ["cypress", "node"],
+    "sourceMap": false
+  },
+  "include": [
+    "**/*.ts",
+    "**/*.js",
+    "<%= offsetFromProjectRoot %>cypress.config.ts",
+    "<%= offsetFromProjectRoot %>**/*.cy.ts",
+    <% if (jsx) { %> "<%= offsetFromProjectRoot %>**/*.cy.tsx",<% } %>
+    "<%= offsetFromProjectRoot %>**/*.cy.js",
+    <% if (jsx) { %>"<%= offsetFromProjectRoot %>**/*.cy.jsx",<% } %>
+    "<%= offsetFromProjectRoot %>**/*.d.ts"
+  ]
+}
